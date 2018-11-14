@@ -21,15 +21,15 @@ npm install
 ### Public End Points (CRUD)
 | Description                                    | Endpoint                     |
 | ---------------------------------------------- | ---------------------------- |
-| Create new info of home's Mortgage information | POST /api/homes/:id/prices   |
+| Create new info of home's Mortgage information | POST /api/homes/prices       |
 | Get info of home's Mortgage information        | GET /api/homes/:id/prices    |
 | Update info of home's Mortgage information     | PUT /api/homes/:id/prices    |
 | Delete info of home's Mortgage information     | DELETE /api/homes/:id/prices |
 
 
-### POST /api/homes/:id/prices
+### POST /api/homes/prices
 Input:
-home_price:123456, property_tax:1234, home_insurance:1234, hoa_dues:100
+{"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}
 
 Output:
 [{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
@@ -38,5 +38,20 @@ Output:
 Input:
 id = 1
 
-Out
+Output:
 [{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
+
+### PUT /api/homes/:id/prices
+Input:
+id = 1
+[{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
+
+Output:
+[{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
+
+### DELETE /api/homes/:id/prices
+Input:
+id = 1
+
+Output:
+success
