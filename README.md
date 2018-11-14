@@ -22,13 +22,9 @@ npm install
 | Description                                    | Endpoint                     |
 | ---------------------------------------------- | ---------------------------- |
 | Create new info of home's Mortgage information | POST /api/homes/:id/prices   |
-| ---------------------------------------------- | ---------------------------- |
 | Get info of home's Mortgage information        | GET /api/homes/:id/prices    |
-| ---------------------------------------------- | ---------------------------- |
 | Update info of home's Mortgage information     | PUT /api/homes/:id/prices    |
-| ---------------------------------------------- | ---------------------------- |
 | Delete info of home's Mortgage information     | DELETE /api/homes/:id/prices |
-| ---------------------------------------------- | ---------------------------- |
 
 
 ### POST /api/homes/:id/prices
