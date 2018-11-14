@@ -47,7 +47,7 @@ id = 1
 [{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
 
 Output:
-[{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
+[{"id":1,"home_price":123,"property_tax":123,"home_insurance":123,"hoa_dues":123}]
 
 ### DELETE /api/homes/:id/prices
 Input:
