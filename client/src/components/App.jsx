@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var path = window.location.pathname.split('/');
+    let path = window.location.pathname.split('/');
     let id= path[path.length-2];
     fetch(`/api/homes/${id}/prices`, {
       headers: {
