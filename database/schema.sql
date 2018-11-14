@@ -1,8 +1,8 @@
-CREATE DATABASE zillower;
+CREATE DATABASE IF NOT EXISTS zillower;
 
 USE zillower;
 
-CREATE TABLE mortgage(
+CREATE TABLE IF NOT EXISTS mortgage(
     id INT NOT NULL AUTO_INCREMENT,
     home_price INT NOT NULL,
     property_tax INT NOT NULL,

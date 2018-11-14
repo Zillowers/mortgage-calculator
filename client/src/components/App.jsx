@@ -34,7 +34,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const id = 1;
+    var path = window.location.pathname.split('/');
+    let id= path[path.length-2];
     fetch(`/api/homes/${id}/prices`, {
       headers: {
         'Content-Type': 'application/json',
@@ -140,11 +141,11 @@ class App extends React.Component {
   toggleClass() {
     const item = document.getElementsByClassName('fas');
     if (this.state.open === true) {
-      item[0].classList.remove('fa-angle-up');
-      item[0].classList.add('fa-angle-down');
-    } else {
-      item[0].classList.add('fa-angle-up');
       item[0].classList.remove('fa-angle-down');
+      item[0].classList.add('fa-angle-up');
+    } else {
+      item[0].classList.add('fa-angle-down');
+      item[0].classList.remove('fa-angle-up');
     }
   }
 

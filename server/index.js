@@ -14,6 +14,9 @@ app.listen(port, () => {
   console.log(`listening at ${port}`);
 });
 
+
+app.use('/homes/:id', express.static('public/dist'));
+
 app.get('/api/homes/:id/prices', (req, res) => {
   const { id } = req.params;
   db.retrieve(id, (err, data) => {
