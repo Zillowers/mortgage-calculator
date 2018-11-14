@@ -13,4 +13,6 @@
 From within the root directory:
 npm install
 
-
+1. mysql -u root -p <database/schema.sql
+2. npm run fake (to generate fakedata)
+3. npm run seed (to seed fakedata)
