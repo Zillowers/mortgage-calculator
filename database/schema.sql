@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS zillower;
 CREATE DATABASE IF NOT EXISTS zillower;
 
 USE zillower;
@@ -11,4 +12,4 @@ CREATE TABLE IF NOT EXISTS mortgage(
     PRIMARY KEY (id)
 )
 
-
+-- mysql -u root -p <database/schema.sql

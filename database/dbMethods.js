@@ -11,6 +11,17 @@ const retrieve = (id, callback) => {
   });
 };
 
+// db.query('SELECT * FROM mortgage', (err, data) => {
+//   let arr = [];
+//   data.forEach(ele => {
+//     if (arr.includes(ele.guid_column)) {
+//       console.log(false);
+//     }
+//     arr.push(ele.guid_column);
+//   });
+//   console.log(arr)
+// });
+
 module.exports = {
   retrieve,
 };
