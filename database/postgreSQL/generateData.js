@@ -1,7 +1,7 @@
 const fs = require('fs');
 const faker = require('faker');
 
-const wstream = fs.createWriteStream('./database/mortgageData.tsv');
+const wstream = fs.createWriteStream('./database/postgreSQL/mortgageData.tsv');
 const fakeDataGenerator = (i) => {
   for (; i <= 10000000; i++) {
     const home_price = faker.finance.amount(100000, 100000000, 0);
@@ -9,7 +9,7 @@ const fakeDataGenerator = (i) => {
     const home_insurance = Math.floor(home_price * (faker.random.number({ min: 5, max: 10 }) / 100));
     const hoa_dues = Math.floor(home_price * (faker.random.number({ min: 1, max: 5 }) / 100));
 
-    if (!wstream.write(`${home_price},${property_tax},${home_insurance},${hoa_dues}\n`)) {
+    if (!wstream.write(`${home_price}\t${property_tax}\t${home_insurance}\t${hoa_dues}\n`)) {
       wstream.once('drain', () => {
         fakeDataGenerator(i + 1);
       });
@@ -21,4 +21,4 @@ const fakeDataGenerator = (i) => {
 
 fakeDataGenerator(1);
 
-// paste -d, streetNames.tsv mortgageData.tsv > mergedData.tsv
+// paste -d'\t' idStreetNames.tsv mortgageData.tsv > idStreetPriceData.tsv

@@ -13,7 +13,8 @@
     "dev": "webpack -d --watch",
     "seed": "node database/seed.js",
     "fake": "node database/fakeData.js",
-    "test": "./node_modules/.bin/jest"
+    "test": "./node_modules/.bin/jest",
+    "gendata": "node database/postgreSQL/generateData.js"
   },
   "jest": {
     "setupFiles": [
@@ -28,12 +29,15 @@
     }
   },
   "dependencies": {
+    "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "mongoose": "^5.3.12",
     "mysql": "^2.16.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "faker": "^4.1.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
