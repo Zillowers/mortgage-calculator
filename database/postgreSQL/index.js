@@ -1,10 +1,21 @@
-const mysql = require('mysql');
+const { Client } = require('pg');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  database: 'zillower',
-});
+const connectionString = 'postgres://localhost:5432/zillower';
 
-connection.connect();
+const client = new Client(connectionString);
+client.connect();
 
-module.exports = connection;
+const retrieve = (id, callback) => {
+  const sql = `SELECT * FROM mortgage where id=${id}`;
+  client.query(sql, (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data.rows);
+    }
+  });
+};
+
+module.exports = {
+  retrieve,
+};
