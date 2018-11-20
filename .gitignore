@@ -5,3 +5,4 @@ bundle.js
 *.log
 dbKey.js
 package-lock.json
+newrelicKey.js
