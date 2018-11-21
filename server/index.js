@@ -2,7 +2,7 @@ require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const port = 80;
+const port = 3000;
 // const { retrieve } = require('./../database/dbMethods.js'); //MySql
 // const { retrieve } = require('../database/postgreSQL'); // postgreSQL
 const db = require('../database/mongoDB');
@@ -17,6 +17,7 @@ app.listen(port, () => {
   console.log(`listening at ${port}`);
 });
 app.use('/homes/:id', express.static('public/dist'));
+app.use('/loaderio-032b6383a8e9c0567661e92196f829e0/', express.static('public/dist/loaderio-032b6383a8e9c0567661e92196f829e0.txt'));
 
 // postgres
 // app.get('/api/postgres/:id', (req, res) => {
