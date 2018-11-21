@@ -15,9 +15,9 @@ class App extends React.Component {
         pmiBlock: false,
         taxBlock: false,
         insuranceBlock: false,
-        hoaBlock: false
+        hoaBlock: false,
       },
-      checked:{
+      checked: {
         pmiChecked: true,
         taxesChecked: true,
       },
@@ -31,16 +31,16 @@ class App extends React.Component {
     this.formatCurrency = this.formatCurrency.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleRandom = this.handleRandom.bind(this);
   }
 
   componentDidMount() {
-    var path = window.location.pathname.split('/');
-    let id= path[path.length-2];
+    const path = window.location.pathname.split('/');
+    const id = path[path.length - 2] || this.handleRandom();
     fetch(`/api/homes/${id}/prices`, {
       headers: {
         'Content-Type': 'application/json',
-          'Accept': 'application/json'
-      }
+      },
     })
       .then(res => res.json())
       .then((res) => {
@@ -57,6 +57,13 @@ class App extends React.Component {
         });
       })
       .catch(err => console.log(err));
+  }
+
+  handleRandom() {
+    const min = 1;
+    const max = 10000000;
+    const id = Math.floor(Math.random() * (max - min + 1)) + min;
+    return id;
   }
 
   calculatePayments() {
