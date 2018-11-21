@@ -2,7 +2,7 @@ require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const port = 80;
+const port = 3000;
 // const { retrieve } = require('./../database/dbMethods.js'); //MySql
 // const { retrieve } = require('../database/postgreSQL'); // postgreSQL
 const db = require('../database/mongoDB');

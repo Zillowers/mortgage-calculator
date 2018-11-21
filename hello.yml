@@ -3,7 +3,7 @@ config:
   target: 'http://localhost:3000'
   phases:
     - duration: 60
-      arrivalRate: 1000
+      arrivalRate: 1900
 scenarios:
   - flow:
     - function: 'randomId'
