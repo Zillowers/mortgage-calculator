@@ -23,7 +23,7 @@ npm install
 | ---------------------------------------------- | ---------------------------- |
 | Create new info of home's Mortgage information | POST /api/homes/prices       |
 | Get info of home's Mortgage information        | GET /api/homes/:id/prices    |
-| Update info of home's Mortgage information     | PUT /api/homes/:id/prices    |
+| Update info of home's Mortgage information     | PATCH /api/homes/:id/prices    |
 | Delete info of home's Mortgage information     | DELETE /api/homes/:id/prices |
 
 
@@ -41,7 +41,7 @@ id = 1
 Output:
 [{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
 
-### PUT /api/homes/:id/prices
+### PATCH /api/homes/:id/prices
 Input:
 id = 1
 [{"id":1,"home_price":1031260,"property_tax":1628,"home_insurance":525,"hoa_dues":167}]
