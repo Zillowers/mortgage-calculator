@@ -3,9 +3,22 @@ config:
   target: 'http://localhost:3000'
   phases:
     - duration: 60
-      arrivalRate: 1900
+      arrivalRate: 1000
 scenarios:
   - flow:
-    - function: 'randomId'
-    - get:
-        url: "/homes/{{ id }}"
+    # - function: 'randomId'
+    # - get:
+    #     url: '/homes/{{ getId }}'
+    - function: 'randomData'
+    - post:
+        url: '/api/homes/prices'
+        json:
+          id: '{{ postId }}'
+          street: '{{ street }}'
+          home_price: '{{ home_price }}'
+          property_tax: '{{ property_tax }}'
+          home_insurance: '{{ home_insurance }}'
+          hoa_dues: '{{ hoa_dues }}'
+    # - function: 'removeId'
+    # - delete:
+    #     url: '/api/homes/{{ postId }}/prices'
