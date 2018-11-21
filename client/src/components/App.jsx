@@ -36,7 +36,8 @@ class App extends React.Component {
 
   componentDidMount() {
     const path = window.location.pathname.split('/');
-    const id = path[path.length - 2] || this.handleRandom();
+    // const id = path[path.length - 2] || this.handleRandom();
+    const id = path[path.length - 2];
     fetch(`/api/homes/${id}/prices`, {
       headers: {
         'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 config:
   processor: './stressTestScript.js'
-  target: 'http://localhost:3000/homes/1'
+  target: 'http://localhost:3000'
   phases:
     - duration: 60
       arrivalRate: 1000
@@ -8,4 +8,4 @@ scenarios:
   - flow:
     - function: 'randomId'
     - get:
-        url: "http://localhost:3000/homes/{{ id }}"
+        url: "/homes/{{ id }}"
