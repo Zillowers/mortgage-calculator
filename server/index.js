@@ -3,8 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const port = 80;
-// const { retrieve } = require('./../database/dbMethods.js'); //MySql
-// const { retrieve } = require('../database/postgreSQL'); // postgreSQL
 const db = require('../database/mongoDB');
 const { Mortgages } = require('../database/mongoDB/MortgageDB.js');
 
@@ -19,20 +17,6 @@ app.listen(port, () => {
 app.use('/homes/:id', express.static('public/dist'));
 app.use('/loaderio-032b6383a8e9c0567661e92196f829e0/', express.static('public/dist/loaderio-032b6383a8e9c0567661e92196f829e0.txt'));
 
-// postgres
-// app.get('/api/postgres/:id', (req, res) => {
-//   const { id } = req.params;
-//   retrieve(id, (err, data) => {
-//     if (err) {
-//       res.end(err);
-//     } else {
-//       res.writeHead(200, { 'Content-Type': 'application/json' });
-//       res.end(JSON.stringify(data));
-//     }
-//   });
-// });
-
-// MongoDB
 app.get('/api/homes/:id/prices', (req, res) => {
   const { id } = req.params;
   Mortgages.find({ id }, (err, data) => {
