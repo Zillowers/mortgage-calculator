@@ -11,8 +11,6 @@
     "start": "nodemon server/index.js",
     "build": "webpack --mode production",
     "dev": "webpack -d --watch",
-    "seed": "node database/seed.js",
-    "fake": "node database/fakeData.js",
     "gendata": "node database/postgreSQL/generateData.js"
   },
   "dependencies": {
