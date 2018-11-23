@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS mortgage(
   hoa_dues INT NOT NULL
 )
 
-\COPY mortgage FROM 'database/postgreSQL/idStreetPriceData.tsv' DELIMITER '\t';
-
+-- \COPY mortgage FROM 'database/postgreSQL/idStreetPriceData.tsv' DELIMITER '\t';
 -- psql postgres <database/postgreSQL/postgreSchema.sql
 -- CREATE INDEX id ON mortgage (id);
