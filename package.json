@@ -2,16 +2,16 @@
   "name": "mortgage-calculator",
   "version": "",
   "description": "",
-  "author": "Mona Bocharova",
+  "author": "",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
     "start": "NODE_ENV=production webpack -p && PORT=80 node public/dist/server.js",
-    "ssr-dev": "NODE_ENV=development webpack -p",
+    "ssr-dev": "NODE_ENV=development webpack -p && node public/dist/server.js",
     "gen-data": "node database/postgreSQL/generateData.js",
-    "ssr-prod": "NODE_ENV=production webpack -p && node public/dist/server.js"
+    "ssr": "NODE_ENV=production webpack -p && node public/dist/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
