@@ -1,8 +1,11 @@
-require('newrelic');
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import App from '../client/src/components/App.jsx';
 
-const port = process.env.PORT || 3000;
+require('newrelic');
+
+const PORT = process.env.PORT || 3000;
 // const { retrieve } = require('./../database/dbMethods.js'); //MySql
 // const { retrieve } = require('../database/postgreSQL'); // postgreSQL
 const db = require('../database/mongoDB');
@@ -10,14 +13,40 @@ const { Mortgages } = require('../database/mongoDB/MortgageDB.js');
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('public/dist'));
-app.listen(port, () => {
-  console.log(`listening at ${port}`);
+app.listen(PORT, () => {
+  console.log(`listening at ${PORT}`);
 });
 app.use('/homes/:id', express.static('public/dist'));
-app.use('/loaderio-032b6383a8e9c0567661e92196f829e0/', express.static('public/dist/loaderio-032b6383a8e9c0567661e92196f829e0.txt'));
+app.use('/loaderio-032b6383a8e9c0567661e92196f829e0/', express.static('public/loaderio-032b6383a8e9c0567661e92196f829e0.txt'));
+
+app.get('/homes/:id', (req, res) => {
+  const { id } = req.params;
+  // Mortgages.find({ id }, (err, data) => {
+  //   if (err) {
+  //     res.end(err);
+  //   } else {
+  const markup = renderToString(<App />);
+
+  res.send(`
+        <!DOCTYPE html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Mortgage Calculator</title>
+          <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/cssnode">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+          <link rel="stylesheet" href="styles/main.css">
+          <script src="bundle.js" defer></script>
+        </head>
+        <body>
+          <div id="app">${markup}</div>
+        </body>
+        </html>
+      `);
+  // }
+  // });
+});
+
 
 app.get('/api/homes/:id/prices', (req, res) => {
   const { id } = req.params;

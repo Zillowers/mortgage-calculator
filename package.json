@@ -8,14 +8,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "80": "PORT=80 nodemon server/index.js",
-    "start": "nodemon server/index.js",
-    "pack": "webpack --config webpack.config.js",
-    "babel": "babel src -d views",
-    "ssr": "npm run pack && npm run babel",
-    "build": "webpack --mode production",
-    "dev": "webpack -d --watch",
-    "gendata": "node database/postgreSQL/generateData.js"
+    "start": "NODE_ENV=production webpack -p && PORT=80 node public/dist/server.js",
+    "ssr-dev": "NODE_ENV=development webpack -p",
+    "gen-data": "node database/postgreSQL/generateData.js",
+    "ssr-prod": "NODE_ENV=production webpack -p && node public/dist/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -29,26 +25,26 @@
     "pg": "^7.6.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "request": "^2.88.0",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.3.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.3.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "babel-preset-react-app": "^6.1.0",
     "css-loader": "^1.0.1",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "identity-obj-proxy": "^3.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "postcss-loader": "^3.0.0",
     "regenerator-runtime": "^0.12.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.23.0",
