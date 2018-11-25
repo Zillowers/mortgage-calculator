@@ -9,6 +9,7 @@ const db = require('../database/mongoDB');
 const { Mortgages } = require('../database/mongoDB/MortgageDB.js');
 
 const app = express();
+app.use('/homes/:id', express.static('public/dist'));
 app.use('/', express.static('public/dist'));
 
 app.get('/homes/:id', (req, res) => {
