@@ -52,7 +52,7 @@ const serverConfig = {
   entry: './server/server.js',
   target: 'node',
   output: {
-    path: DIST_DIR,
+    path: __dirname + '/public',
     filename: 'server.js',
     libraryTarget: 'commonjs2',
   },
@@ -82,27 +82,3 @@ const serverConfig = {
 };
 
 module.exports = [browserConfig, serverConfig];
-
-// module.exports = {
-//   entry: `${SRC_DIR}/index.jsx`,
-//   output: {
-//     filename: 'bundle.js',
-//     path: DIST_DIR,
-//   },
-//   module: {
-//     rules: [
-//       {
-//         test: /\.jsx?/,
-//         include: SRC_DIR,
-//         exclude: /node_modules/,
-//         use: {
-//           loader: 'babel-loader',
-//         },
-//       },
-//       {
-//         test: /\.css$/,
-//         loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-//       },
-//     ],
-//   },
-// };

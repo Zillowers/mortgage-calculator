@@ -3,23 +3,13 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from '../client/src/components/App.jsx';
 
-require('newrelic');
-
 const PORT = process.env.PORT || 3000;
-// const { retrieve } = require('./../database/dbMethods.js'); //MySql
-// const { retrieve } = require('../database/postgreSQL'); // postgreSQL
+require('newrelic');
 const db = require('../database/mongoDB');
 const { Mortgages } = require('../database/mongoDB/MortgageDB.js');
 
 const app = express();
-
-app.listen(PORT, () => {
-  console.log(`listening at ${PORT}`);
-});
-app.use('/homes/:id', express.static('public/dist'));
-app.use('/loaderio-032b6383a8e9c0567661e92196f829e0/', express.static('public/loaderio-032b6383a8e9c0567661e92196f829e0.txt'));
-app.use('/bundle.js', express.static('public/dist/bundle.js'));
-
+app.use('/', express.static('public/dist'));
 
 app.get('/homes/:id', (req, res) => {
   const { id } = req.params;
@@ -28,7 +18,6 @@ app.get('/homes/:id', (req, res) => {
   //     res.end(err);
   //   } else {
   const markup = renderToString(<App />);
-
   res.send(`
         <!DOCTYPE html>
         <head>
@@ -48,7 +37,6 @@ app.get('/homes/:id', (req, res) => {
   // }
   // });
 });
-
 
 app.get('/api/homes/:id/prices', (req, res) => {
   const { id } = req.params;
@@ -90,3 +78,10 @@ app.delete('/api/homes/:id/prices', (req, res) => {
       res.status(400).send(`id: ${id} does not exist in database\n`, error);
     });
 });
+
+app.listen(PORT, () => {
+  console.log(`listening on ${PORT}`);
+});
+
+// const { retrieve } = require('./../database/dbMethods.js'); //MySql
+// const { retrieve } = require('../database/postgreSQL'); // postgreSQL
