@@ -1,8 +1,6 @@
-.DS_Store
+# package directories
 node_modules
-bundle.js
-*.tsv
-*.log
-dbKey.js
-package-lock.json
-newrelicKey.js
+jspm_packages
+
+# Serverless directories
+.serverless
