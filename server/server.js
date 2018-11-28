@@ -11,6 +11,8 @@ const { Mortgages } = require('../database/mongoDB/MortgageDB.js');
 const app = express();
 app.use('/homes/:id', express.static('public/dist'));
 app.use('/', express.static('public/dist'));
+app.use('/loaderio-032b6383a8e9c0567661e92196f829e0', express.static('public/loaderio-032b6383a8e9c0567661e92196f829e0.txt'));
+
 
 app.get('/homes/:id', (req, res) => {
   const { id } = req.params;
