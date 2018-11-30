@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 require('newrelic');
 const db = require('../database/mongoDB');
 const { Mortgages } = require('../database/mongoDB/MortgageDB.js');
+// const db = require('../database/cassandra');
 
 const app = express();
 app.use('/homes/:id', express.static('public/dist'));
@@ -86,5 +87,13 @@ app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
 
-// const { retrieve } = require('./../database/dbMethods.js'); //MySql
-// const { retrieve } = require('../database/postgreSQL'); // postgreSQL
+// app.get('/api/homes/:id/prices', (req, res) => {
+//   const { id } = req.params;
+//   const query = `SELECT * FROM mortgages WHERE ID = ${id}`;
+//   db
+//     .execute(query)
+//     .then((data) => {
+//       res.status(200).send(data.rows);
+//     })
+//     .catch(error => res.status(500).send(error));
+// });
