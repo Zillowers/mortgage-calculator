@@ -6,3 +6,6 @@ bundle.js
 dbKey.js
 package-lock.json
 newrelicKey.js
+dist
+public/server.js
+public/server.js.map
