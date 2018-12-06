@@ -5,7 +5,7 @@
 ### Installing Dependencies & Starting the Project
 From within the root directory:<br />
 `npm install` to install all dependencies.<br />
-Run `npm run ssr` to build and start project. The build artifacts will be stored in the `dist/` directory.<br />
+`npm run ssr` to build and start project. The build artifacts will be stored in the `dist/` directory.<br />
 Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.<br />
 
 
