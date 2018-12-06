@@ -1,16 +1,12 @@
 # Mortgage Calculator
 
-> Mortgage Calculator similar to Zillow's
+> Mortgage calculator based on selected real estate value
 
-## Related Projects
-
-  - https://github.com/team-frontend/nearby-homes
-  - https://github.com/team-frontend/image-carousel
-  - https://github.com/team-frontend/detailed-part
-
-### Installing Dependencies
+### Installing Dependencies & Starting the Project
 From within the root directory:
-npm install
+`npm install` to install all dependencies.
+Run `npm run ssr` to build and start project. The build artifacts will be stored in the `dist/` directory.
+Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
 
 ### Public End Points (CRUD)
